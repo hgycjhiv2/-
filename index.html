@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>المسابقة الوطنية للتعليق الصوتي | جمعية الارتقاء الشبانية</title>
+<meta name="theme-color" content="#07807D">
+<link rel="icon" href="assets/logo.webp" type="image/webp">
+<meta property="og:title" content="المسابقة الوطنية للتعليق الصوتي">
+<meta property="og:description" content="سجّل مشاركتك في المسابقة الوطنية للتعليق الصوتي من تنظيم جمعية الارتقاء الشبانية.">
+<meta property="og:image" content="assets/p1.webp">
+<meta property="og:type" content="website">
+<meta name="description" content="المسابقة الوطنية للتعليق الصوتي من تنظيم جمعية الارتقاء الشبانية. سجّل مشاركتك وأرسل أداءك عبر واتساب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* Layout: the logo's own world — light grey ground, logo teal for type and one band,
+   logo orange for actions and the voice line. One rounded geometric family, like the logo lettering. */
+:root{
+  --bg:#F4F4F4;          /* logo ground */
+  --paper:#FFFFFF;
+  --teal:#099A97;        /* logo teal: large type, lines */
+  --teal-dark:#07807D;   /* same teal, one step darker: band + small teal text */
+  --ink:#163A39;         /* body text, a deep shade of the logo teal */
+  --muted:#557170;
+  --line:#DCE4E3;
+  --amber:#FEA724;       /* logo orange */
+  --amber-dark:#EE9512;
+  --error:#B3261E;
+  --font:"Alexandria","Noto Sans Arabic",Tahoma,sans-serif;
+  --wrap:1160px;
+  --gutter:clamp(16px,4vw,40px);
+  --sec:clamp(72px,9vw,120px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.8 var(--font);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.ph{opacity:.75;border-bottom:1.5px dashed currentColor}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 28px;border-radius:999px;font:600 1.05rem/1.2 var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s ease,background-color .2s ease}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--amber);color:#2A1A00}
+.btn-primary:hover{background:var(--amber-dark);transform:translateY(-2px)}
+.btn-line{border-color:var(--teal);color:var(--teal-dark);background:transparent}
+.btn-line:hover{background:var(--paper);transform:translateY(-2px)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--amber);flex:none;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(244,244,244,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand img{width:42px;height:42px;border-radius:50%}
+.brand span{font-weight:700;font-size:1rem;color:var(--teal-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .btn{min-height:44px;padding:8px 20px;font-size:.95rem}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,96px) var(--sec)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:.92rem;font-weight:500;color:var(--teal-dark)}
+.hero h1{margin:24px 0 0;font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:600;line-height:1.5;color:var(--ink);text-wrap:balance}
+.display{margin:6px 0 0;font-weight:800;font-size:clamp(2.8rem,7.4vw,6.2rem);line-height:1.2;color:var(--teal);display:flex;flex-wrap:wrap;align-items:center;column-gap:.2em}
+.display .w{white-space:nowrap}
+.kashida{display:block;flex:1 1 2.4em;min-width:2.2em;max-width:4.8em;height:.8em;transform:translateY(.12em);color:var(--amber)}
+.kashida svg{width:100%;height:100%;overflow:visible;display:block}
+.kashida path{fill:none;stroke:currentColor;stroke-width:.09em;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.lead{margin:24px 0 0;max-width:33em;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--muted)}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.facts{margin:30px 0 0;font-size:.95rem;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:600}
+.facts i{font-style:normal;color:var(--teal);margin-inline:10px}
+.seal{justify-self:center;width:min(100%,400px);aspect-ratio:1;border-radius:50%;background:var(--paper);display:grid;place-items:center;box-shadow:0 40px 80px -40px rgba(7,128,125,.45)}
+.seal img{width:92%;height:auto}
+
+/* sections */
+.sec{padding-block:var(--sec)}
+.kicker{font-size:.92rem;font-weight:600;color:var(--teal-dark)}
+.title{margin:10px 0 0;font-size:clamp(2rem,4.4vw,3.4rem);font-weight:700;line-height:1.25;text-wrap:balance}
+.sub{margin:14px 0 0;max-width:36em;color:var(--muted);font-size:1.08rem}
+
+/* categories */
+.cats{margin:44px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px;border-top:2px solid var(--teal)}
+.cat{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:96px;padding:18px 6px;background:none;border:0;border-bottom:1px solid var(--line);color:inherit;font:inherit;text-align:start;cursor:pointer;transition:padding .25s ease}
+.cat:hover,.cat:focus-visible{padding-inline:16px 6px}
+.cat b{display:block;font-size:1.35rem;font-weight:700;color:var(--ink)}
+.cat small{display:block;color:var(--muted);font-size:.95rem;line-height:1.6}
+.cat .go{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);color:var(--teal-dark);transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.cat .go svg{width:18px;height:18px}
+.cat:hover .go,.cat:focus-visible .go{background:var(--amber);border-color:var(--amber);color:#2A1A00}
+
+/* previous edition band */
+.band{background:var(--teal-dark);color:#fff}
+.band .kicker{color:var(--amber)}
+.band .sub{color:rgba(255,255,255,.85)}
+.prev-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px}
+.big-stat{display:flex;align-items:baseline;gap:14px}
+.big-stat .v{font-size:clamp(4rem,10vw,7.5rem);font-weight:800;line-height:1;color:var(--amber)}
+.big-stat .l{font-size:1.15rem;font-weight:600;line-height:1.5}
+.masonry{columns:3 260px;column-gap:14px;margin-top:44px}
+.masonry button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;border-radius:20px;overflow:hidden;background:rgba(255,255,255,.1);cursor:zoom-in;break-inside:avoid;position:relative}
+.masonry img{width:100%;height:auto;transition:transform .5s ease}
+.masonry button:hover img{transform:scale(1.03)}
+.masonry .cap{position:absolute;inset-inline-start:12px;bottom:12px;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);font-size:.85rem;font-weight:600;max-width:calc(100% - 24px)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,30,29,.94);display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 60px) 16px calc(env(safe-area-inset-bottom,0px) + 80px)}
+.lb img{max-height:100%;max-width:100%;border-radius:14px;object-fit:contain}
+.lb .x,.lb .nav{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;cursor:pointer}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 12px);inset-inline-start:12px}
+.lb .nav{bottom:calc(env(safe-area-inset-bottom,0px) + 18px)}
+.lb .prev{inset-inline-start:calc(50% - 60px)}
+.lb .next{inset-inline-start:calc(50% + 12px)}
+.lb svg{width:22px;height:22px}
+.lb .cnt{position:absolute;top:calc(env(safe-area-inset-top,0px) + 24px);inset-inline-end:20px;color:#fff;font-size:.9rem}
+.lb .lcap{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);inset-inline:16px;text-align:center;color:#fff;font-weight:600}
+
+/* rules */
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
+.tile{position:relative;overflow:hidden;min-height:260px;padding:28px;border-radius:26px;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.tile.wide{grid-column:span 2}
+.tile .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--bg);color:var(--teal-dark)}
+.tile .ic svg{width:26px;height:26px}
+.tile .huge{font-size:clamp(3.4rem,7vw,5.6rem);font-weight:800;line-height:.95;color:var(--teal)}
+.tile h3{margin:0;font-size:1.35rem;font-weight:700;line-height:1.4}
+.tile p{margin:4px 0 0;color:var(--muted);font-size:1rem}
+.tile.teal{background:var(--teal-dark);color:#fff}
+.tile.teal .ic{background:rgba(255,255,255,.14);color:#fff}
+.tile.teal .huge{color:var(--amber)}
+.tile.teal p{color:rgba(255,255,255,.85)}
+.tile .top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{padding:8px 14px;border-radius:999px;background:var(--bg);font-size:.95rem;font-weight:500}
+.notes{margin-top:16px;padding:clamp(22px,3vw,32px);border-radius:26px;background:#FFF3DF;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2.2fr);gap:24px;align-items:center}
+.notes-h{display:flex;align-items:center;gap:14px}
+.notes-h .ic{width:52px;height:52px;border-radius:50%;background:var(--amber);color:#2A1A00;display:grid;place-items:center;flex:none}
+.notes-h .ic svg{width:26px;height:26px}
+.notes-h h3{margin:0;font-size:1.3rem;font-weight:700}
+.notes ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.notes li{display:flex;gap:10px;align-items:flex-start;font-size:.98rem;line-height:1.6}
+.notes li svg{width:20px;height:20px;flex:none;margin-top:3px;color:#B86A00}
+.notes li b{display:block;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:64px 0 0;padding:0;list-style:none}
+.step{padding:28px;border-radius:24px;background:var(--paper)}
+.step .k{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;font-size:1.1rem}
+.step b{display:block;margin-top:16px;font-size:1.2rem;font-weight:700}
+.step p{margin:6px 0 0;color:var(--muted)}
+
+/* register */
+.reg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
+.wa-box{padding:16px 18px;border-radius:18px;background:var(--paper);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.wa-box small{display:block;color:var(--muted);font-size:.88rem}
+.wa-box strong{font-size:1.35rem;font-weight:700;color:var(--teal-dark);user-select:all}
+.copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:600 .92rem var(--font);cursor:pointer}
+.copy:hover{border-color:var(--teal)}
+.copy svg{width:18px;height:18px}
+.card{background:var(--paper);border-radius:28px;padding:clamp(22px,4vw,40px)}
+.card-t{margin:0;font-size:1.25rem;font-weight:700}
+.need{margin:16px 0 26px;padding:0;list-style:none;display:grid;gap:4px}
+.need li{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-weight:500}
+.need li>span{width:32px;height:32px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--bg);color:var(--teal-dark);font-weight:700;font-size:.9rem}
+.need li.vid>span{background:var(--amber);color:#2A1A00}
+.need li.vid svg{width:14px;height:14px}
+.wa-btn{width:100%;min-height:60px;font-size:1.15rem}
+.card .wa-box{background:var(--bg);margin-top:16px}
+.note{margin:14px 0 0;font-size:.9rem;color:var(--muted)}
+
+/* faq */
+.faq{margin-top:36px;max-width:820px;border-top:2px solid var(--teal)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px;padding:14px 0;cursor:pointer;font-size:1.1rem;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary .pm{width:30px;height:30px;flex:none;border-radius:50%;background:var(--paper);display:grid;place-items:center;color:var(--teal-dark);transition:transform .25s ease}
+summary .pm svg{width:14px;height:14px}
+details[open] summary .pm{transform:rotate(45deg)}
+details p{margin:0 0 20px;color:var(--muted)}
+
+/* footer */
+footer{background:var(--paper);border-top:1px solid var(--line);padding-block:48px 32px}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.foot .brand img{width:56px;height:56px}
+.foot .brand span{font-size:1.15rem;white-space:normal}
+.legal{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.88rem;color:var(--muted)}
+
+/* responsive */
+@media (max-width:960px){
+  .hero-grid,.reg-grid,.cond{grid-template-columns:minmax(0,1fr)}
+  .seal{width:min(70%,300px);grid-row:1}
+  .cats{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .notes{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .f2{grid-template-columns:minmax(0,1fr)}
+  .ctas .btn{flex:1 1 100%}
+  .top .brand span{font-size:.9rem}
+  .play{width:64px;height:64px}
+  .masonry{columns:2;column-gap:10px}
+  .masonry button{margin-bottom:10px;border-radius:16px}
+  .bento{grid-template-columns:minmax(0,1fr)}
+  .tile.wide{grid-column:auto}
+  .tile{min-height:0}
+  .notes ul{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+
+</head>
+<body>
+<div dir="rtl" lang="ar">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="جمعية الارتقاء الشبانية، العودة إلى أعلى الصفحة">
+      <img src="assets/logo.webp" alt="" width="42" height="42">
+      <span>جمعية الارتقاء الشبانية</span>
+    </a>
+    <a class="btn btn-primary" data-wa href="https://wa.me/213673925573" target="_blank" rel="noopener">سجّل الآن</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill" data-reveal><span class="dot" aria-hidden="true"></span>التسجيلات مفتوحة · الطبعة الثانية</span>
+      <h1 id="h1" data-reveal>المسابقة الوطنية للتعليق الصوتي</h1>
+      <p class="display" data-reveal><span class="sr">اجعل صوتك يصل</span>
+        <span class="w" aria-hidden="true">اجعل صوتك</span>
+        <span class="kashida" aria-hidden="true"><svg viewBox="0 0 400 100" preserveAspectRatio="none"><path id="kashida" d="M0 50 H400"></path></svg></span>
+        <span class="w" aria-hidden="true">يصل</span>
+      </p>
+      <p class="lead" data-reveal>إذا كنت تملك صوتًا مميزًا وحضورًا قويًا وقدرة على إيصال الإحساس، فهذه فرصتك. مسابقة مفتوحة للمواهب من مختلف ولايات الجزائر.</p>
+      <div class="ctas" data-reveal>
+        <a class="btn btn-primary" data-wa href="https://wa.me/213673925573" target="_blank" rel="noopener">سجّل عبر واتساب</a>
+        <a class="btn btn-line" href="#rules">الشروط</a>
+      </div>
+      <p class="facts" data-reveal><b>17 سنة فما فوق</b><i>•</i>فيديو حتى <b class="num">1:30</b><i>•</i><span id="deadline">آخر أجل: <b class="ph">[التاريخ]</b></span></p>
+    </div>
+    <div class="seal" data-reveal><img src="assets/logo.webp" alt="شعار جمعية الارتقاء الشبانية" width="360" height="360"></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="cats-t">
+  <div class="wrap">
+    <div class="kicker">ألوان التعليق الصوتي</div>
+    <h2 class="title" id="cats-t" data-up>اختر لونًا واحدًا وأبدع فيه</h2>
+    <p class="sub">اضغط على اللون المناسب لصوتك، ويفتح لك واتساب برسالة التسجيل جاهزة.</p>
+    <ul class="cats" id="cats"></ul>
+  </div>
+</section>
+
+<section class="sec band" aria-labelledby="prev-t">
+  <div class="wrap">
+    <div class="prev-head">
+      <div>
+        <div class="kicker">من الطبعة الأولى</div>
+        <h2 class="title" id="prev-t" data-up>أصوات صعدت إلى المنصّة</h2>
+        <p class="sub">مواهب من ولايات مختلفة وقفت أمام لجنة التحكيم والجمهور، وكُرّم المتميزون منهم بشهادات تقدير.</p>
+      </div>
+      <div class="big-stat" data-up><span class="v num">55</span><span class="l">مشاركًا<br>في الطبعة الأولى</span></div>
+    </div>
+    <div class="masonry" id="masonry">
+      <button type="button" data-i="0" aria-label="تكبير صورة: تكريم المتسابقين"><img src="assets/p1.webp" alt="تكريم المتسابقين بشهادات التقدير" width="1100" height="733" loading="lazy"><span class="cap">تكريم المتسابقين</span></button>
+      <button type="button" data-i="1" aria-label="تكبير صورة: على المنصّة"><img src="assets/p2.webp" alt="متسابق يؤدي على المنصّة" width="666" height="1000" loading="lazy"><span class="cap">على المنصّة</span></button>
+      <button type="button" data-i="2" aria-label="تكبير صورة: أداء مباشر"><img src="assets/p3.webp" alt="متسابق يؤدي أمام شعار المسابقة الوطنية" width="666" height="1000" loading="lazy"><span class="cap">أداء مباشر</span></button>
+      <button type="button" data-i="3" aria-label="تكبير صورة: شهادات التقدير"><img src="assets/p4.webp" alt="تسليم شهادات التكريم للمتسابقين" width="800" height="533" loading="lazy"><span class="cap">شهادات التقدير</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rules" aria-labelledby="rules-t">
+  <div class="wrap">
+    <div class="kicker">قبل أن تسجّل</div>
+    <h2 class="title" id="rules-t" data-up>شروط المشاركة</h2>
+    <div class="bento">
+      <div class="tile wide teal" data-up>
+        <div class="top-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span>
+          <span class="huge num">1:30</span>
+        </div>
+        <div><h3>مدة الفيديو</h3><p>دقيقة ونصف كحد أقصى. الفيديو الأطول لا يُقبل.</p></div>
+      </div>
+      <div class="tile" data-up>
+        <div class="top-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+          <span class="huge num">+17</span>
+        </div>
+        <div><h3>العمر</h3><p>17 سنة فما فوق.</p></div>
+      </div>
+      <div class="tile" data-up>
+        <div class="top-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></span>
+          <span class="huge num">1</span>
+        </div>
+        <div><h3>لون واحد فقط</h3><p>من ألوان التعليق الصوتي.</p></div>
+      </div>
+      <div class="tile wide" data-up>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.5 16c.8-1.6 2-2.4 3.5-2.4s2.7.8 3.5 2.4M15 10h3M15 14h3"/></svg></span>
+        <div>
+          <h3>معلومات كاملة مع الفيديو</h3>
+          <div class="chips"><span>الاسم واللقب</span><span>الولاية</span><span>العمر</span><span>رقم الهاتف</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes" data-up>
+      <div class="notes-h">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg></span>
+        <h3>ملاحظات مهمة</h3>
+      </div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM22 9l-6 6M16 9l6 6"/></svg><span><b>بدون مؤثرات صوتية</b>تسجيل واضح ونظيف.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg><span><b>الناقصة لا تُقبل</b>أي معلومة ناقصة تُلغي المشاركة.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><span><b>أبرز أسلوبك</b>أظهر قدراتك الصوتية في الأداء.</span></li>
+      </ul>
+    </div>
+
+    <ol class="steps" aria-label="خطوات المشاركة">
+      <li class="step" data-up><span class="k num">1</span><b>اضغط «سجّل عبر واتساب»</b><p>تفتح لك رسالة تسجيل جاهزة.</p></li>
+      <li class="step" data-up><span class="k num">2</span><b>أكمل معلوماتك</b><p>الاسم، الولاية، العمر، الهاتف، واللون.</p></li>
+      <li class="step" data-up><span class="k num">3</span><b>أرفق الفيديو وأرسل</b><p>في نفس المحادثة، ثم أرسل.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="register" style="padding-top:0" aria-labelledby="reg-t">
+  <div class="wrap reg-grid">
+    <div>
+      <div class="kicker">التسجيل</div>
+      <h2 class="title" id="reg-t">سجّل مشاركتك عبر واتساب</h2>
+      <p class="sub">اضغط على الزر، تجد رسالة جاهزة. أكمل معلوماتك فيها، أرفق الفيديو، وأرسل.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="card-t">أرسل في رسالة واحدة</h3>
+      <ul class="need">
+        <li><span class="num">1</span>الاسم واللقب</li>
+        <li><span class="num">2</span>الولاية</li>
+        <li><span class="num">3</span>العمر</li>
+        <li><span class="num">4</span>رقم الهاتف</li>
+        <li><span class="num">5</span>لون التعليق الصوتي</li>
+        <li class="vid"><span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>فيديو الأداء، دقيقة ونصف كحد أقصى</li>
+      </ul>
+      <a class="btn btn-primary wa-btn" data-wa href="https://wa.me/213673925573" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.3A8.5 8.5 0 1 1 21 12z"/></svg>
+        سجّل عبر واتساب
+      </a>
+      <div class="wa-box">
+        <div><small>أو أرسل مباشرة إلى الرقم</small><strong class="num" id="waDisplay">0673925573</strong></div>
+        <button class="copy" type="button" data-copy="0673925573"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>نسخ الرقم</span></button>
+      </div>
+      <p class="note">المشاركة التي تنقصها معلومة لا تُقبل.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="faq-t">
+  <div class="wrap">
+    <div class="kicker">أسئلة شائعة</div>
+    <h2 class="title" id="faq-t">قد تسأل</h2>
+    <div class="faq">
+      <details><summary>هل يمكنني المشاركة بأكثر من لون؟<span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>لا. كل متسابق يختار لونًا واحدًا فقط.</p></details>
+      <details><summary>من يمكنه المشاركة؟<span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>كل من بلغ 17 سنة فما فوق، من أي ولاية من ولايات الجزائر.</p></details>
+      <details><summary>هل أضيف موسيقى أو مؤثرات؟<span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>لا. التسجيل يكون واضحًا ودون أي مؤثرات، حتى يُبرز صوتك الحقيقي.</p></details>
+      <details><summary>ماذا أفعل إذا لم يفتح واتساب؟<span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>أرسل معلوماتك والفيديو مباشرة إلى الرقم <span class="num">0673925573</span>.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top"><img src="assets/logo.webp" alt="" width="56" height="56"><span>جمعية الارتقاء الشبانية</span></a>
+      <a class="btn btn-primary" data-wa href="https://wa.me/213673925573" target="_blank" rel="noopener">سجّل عبر واتساب</a>
+    </div>
+    <div class="legal">
+      <span>© <span class="num">2026</span> جمعية الارتقاء الشبانية · #صوتك_موهبتك</span>
+      <span>تصميم وتطوير Timo Dev</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  /* ===== Settings ===== */
+  const CONFIG = {
+    whatsapp: '213673925573',   // international format, no "+"
+    deadline: ''                // e.g. '2026-11-15T23:59:00+01:00' — empty shows the placeholder
+  };
+  const CATS = [
+    ['الوثائقي','سرد هادئ وواثق يحمل المعلومة.'],
+    ['الإعلاني','طاقة وإقناع في ثوانٍ معدودة.'],
+    ['القصصي','صوت الحكواتي الذي يأخذك إلى الحكاية.'],
+    ['الإذاعي','حضور المذيع ونبرته الواضحة.'],
+    ['الرياضي','حماس اللحظة وإيقاع سريع.'],
+    ['الديني والإيماني','أداء خاشع ووقور.'],
+    ['الكرتوني','تقمّص الشخصيات بأصوات مرحة.'],
+    ['الكتاب الصوتي','قراءة متأنية لنص طويل.']
+  ];
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+  const f = id => document.getElementById(id);
+
+  const waLink = cat => {
+    const msg =
+`السلام عليكم، أرغب في المشاركة في المسابقة الوطنية للتعليق الصوتي.
+
+الاسم واللقب: 
+الولاية: 
+العمر: 
+رقم الهاتف: 
+لون التعليق الصوتي: ${cat || ''}
+
+(أرفق فيديو المشاركة، دقيقة ونصف كحد أقصى)`;
+    return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+  };
+  document.querySelectorAll('[data-wa]').forEach(a => { a.href = waLink(''); });
+
+  /* categories: each opens WhatsApp with the category filled in */
+  const catsEl = $('#cats');
+  CATS.forEach(([n, d]) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.className = 'cat'; a.href = waLink(n); a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', 'سجّل بلون ' + n + ' عبر واتساب');
+    a.innerHTML = `<span><b>${n}</b><small>${d}</small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>`;
+    li.appendChild(a); catsEl.appendChild(li);
+  });
+
+  /* gallery lightbox */
+  const shots = [...document.querySelectorAll('#masonry button')];
+  let lb = null, cur = 0, opener = null;
+  const ico = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
+  const showLb = () => {
+    const im = shots[cur].querySelector('img');
+    lb.querySelector('img').src = im.src; lb.querySelector('img').alt = im.alt;
+    lb.querySelector('.cnt').textContent = (cur + 1) + ' / ' + shots.length;
+    lb.querySelector('.lcap').textContent = shots[cur].querySelector('.cap').textContent;
+  };
+  const step = d => { cur = (cur + d + shots.length) % shots.length; showLb(); };
+  const closeLb = () => { lb.remove(); lb = null; document.documentElement.style.overflow = ''; opener && opener.focus(); };
+  shots.forEach((b, i) => b.addEventListener('click', () => {
+    opener = b; cur = i;
+    lb = document.createElement('div'); lb.className = 'lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'معرض الصور');
+    lb.innerHTML = `<img alt=""><span class="cnt"></span><span class="lcap"></span>
+      <button class="x" type="button" aria-label="إغلاق">${ico('M18 6 6 18M6 6l12 12')}</button>
+      <button class="nav prev" type="button" aria-label="الصورة السابقة">${ico('m9 6 6 6-6 6')}</button>
+      <button class="nav next" type="button" aria-label="الصورة التالية">${ico('m15 6-6 6 6 6')}</button>`;
+    document.body.appendChild(lb); document.documentElement.style.overflow = 'hidden'; showLb();
+    lb.querySelector('.x').onclick = closeLb;
+    lb.querySelector('.prev').onclick = () => step(-1);
+    lb.querySelector('.next').onclick = () => step(1);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    lb.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') step(1);
+      if (e.key === 'ArrowRight') step(-1);
+    });
+    let x0 = null;
+    lb.addEventListener('pointerdown', e => { x0 = e.clientX; });
+    lb.addEventListener('pointerup', e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) step(dx > 0 ? 1 : -1); });
+    lb.querySelector('.x').focus();
+  }));
+
+  /* deadline */
+  if (CONFIG.deadline) {
+    const end = new Date(CONFIG.deadline).getTime(), dl = f('deadline');
+    const tick = () => {
+      const ms = end - Date.now();
+      if (ms <= 0) { dl.textContent = 'انتهى أجل التسجيل'; return; }
+      dl.innerHTML = `يغلق التسجيل بعد <b class="num">${Math.floor(ms/864e5)}</b> يوم`;
+    };
+    tick(); setInterval(tick, 60000);
+  }
+
+  /* hero: the kashida that becomes a voice */
+  const kPath = f('kashida');
+  const drawK = (t, amp) => {
+    let d = '';
+    for (let x = 0; x <= 400; x += 4) {
+      const u = x / 400, env = Math.pow(Math.sin(Math.PI * u), 2);
+      const y = 50 + amp * env * (.55*Math.sin(u*24 + t*2.4) + .3*Math.sin(u*43 - t*3.3) + .15*Math.sin(u*71 + t*5.1));
+      d += (x ? 'L' : 'M') + x + ' ' + y.toFixed(2);
+    }
+    kPath.setAttribute('d', d);
+  };
+  if (reduce) drawK(0, 24);
+  else {
+    const k = { amp: 0 };
+    let t = 0, last = performance.now(), visible = true;
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe($('.hero'));
+    const loop = now => {
+      const dt = Math.min(.05, (now - last) / 1000); last = now;
+      if (visible) { t += dt; drawK(t, k.amp); }
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+    if (window.gsap) gsap.to(k, { amp: 28, duration: 1.6, delay: .6, ease: 'power2.out' }); else k.amp = 28;
+  }
+
+  /* motion */
+  if (window.gsap && !reduce) {
+    gsap.from('.hero [data-reveal]', { y: 26, opacity: 0, duration: .9, stagger: .08, ease: 'power3.out' });
+    gsap.from('.seal img', { rotate: -25, scale: .92, duration: 1.4, ease: 'power3.out' });
+    if (window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('[data-up]').forEach(el =>
+        gsap.from(el, { y: 32, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+    }
+  }
+
+  /* copy number */
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+    const label = btn.querySelector('span'), orig = label.textContent;
+    try { await navigator.clipboard.writeText(btn.dataset.copy); label.textContent = 'تم النسخ'; }
+    catch (e) {
+      const r = document.createRange(); r.selectNodeContents(f('waDisplay'));
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      label.textContent = 'محدّد، انسخه يدويًا';
+    }
+    setTimeout(() => { label.textContent = orig; }, 2200);
+  }));
+})();
+</script>
+
+</body>
+</html>
